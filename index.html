@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy 4th Love Anniversary, Nandhini ❤️ | Four Years of Us</title>
+  
+  <!-- SEO & Social Meta -->
+  <meta name="description" content="A digital love letter, scrapbook, memory timeline, and anniversary surprise celebrating 4 years of love for Nandhini Mahesh.">
+  <meta name="theme-color" content="#1a0b2e">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💖</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Cinzel:wght@500;700;900&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Sacramento&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Floating Romantic Canvas for Ambient Particles / Hearts -->
+  <canvas id="ambientCanvas"></canvas>
+
+  <!-- Interactive Sparkle / Heart Trail Canvas -->
+  <canvas id="cursorTrailCanvas"></canvas>
+
+  <!-- Floating Music & Chapter Navigation Bar -->
+  <nav class="floating-story-nav" id="storyNav" aria-label="Story Navigation">
+    <div class="nav-left">
+      <button class="music-toggle-btn" id="musicToggleBtn" aria-label="Toggle Romantic Background Music" title="Play / Pause Romantic Song">
+        <span class="music-icon-disc">
+          <svg class="music-note-svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+          </svg>
+        </span>
+        <span class="music-text">♪ Our Song</span>
+        <span class="music-waves" id="musicWaves">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
+      <input type="file" id="customAudioInput" accept="audio/*" style="display: none;">
+    </div>
+
+    <div class="nav-center">
+      <div class="progress-pill" id="progressPill" title="Chapter Progress">
+        <span class="heart-dot">❤️</span>
+        <span id="chapterIndicator">01 / 08</span>
+        <span class="chapter-name" id="chapterName">The Cake Surprise</span>
+      </div>
+    </div>
+
+    <div class="nav-right">
+      <div class="nav-dots" id="navDots">
+        <button class="dot-btn active" data-target="page-1" title="Cake Surprise"><span></span></button>
+        <button class="dot-btn" data-target="page-2" title="Our Timeline"><span></span></button>
+        <button class="dot-btn" data-target="page-3" title="The Envelope"><span></span></button>
+        <button class="dot-btn" data-target="page-4" title="The Love Letter"><span></span></button>
+        <button class="dot-btn" data-target="page-5" title="September 30, 2026"><span></span></button>
+        <button class="dot-btn" data-target="page-6" title="October 1, 2026"><span></span></button>
+        <button class="dot-btn" data-target="page-7" title="Psalm 46:5"><span></span></button>
+        <button class="dot-btn" data-target="page-8" title="Our Next Chapter"><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Audio Element with fallback WebAudio synthesiser -->
+  <audio id="bgAudio" loop preload="auto">
+    <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-piano-112199.mp3" type="audio/mp3">
+  </audio>
+
+  <!-- Main Container -->
+  <main class="story-wrapper" id="storyWrapper">
+
+    <!-- ========================================================================= -->
+    <!-- PAGE 1 — THE CAKE SURPRISE                                               -->
+    <!-- ========================================================================= -->
+    <section class="story-section page-cake" id="page-1" data-chapter="01" data-title="The Cake Surprise">
+      <div class="section-bg-glow"></div>
+      
+      <!-- Romantic Doodles -->
+      <div class="doodle doodle-sparkle doodle-p1-1">✨</div>
+      <div class="doodle doodle-heart doodle-p1-2">💖</div>
+      <div class="doodle doodle-ribbon doodle-p1-3">🎀</div>
+      <div class="doodle doodle-flower doodle-p1-4">🌸</div>
+
+      <div class="container cake-scene">
+        
+        <div class="header-hero animate-fade-in">
+          <div class="tag-anniversary">
+            <span class="sparkle-icon">✨</span> 4th Love Anniversary <span class="sparkle-icon">✨</span>
+          </div>
+          <h1 class="hero-title">Happy 4th Love Anniversary ❤️</h1>
+          <h2 class="hero-name">Nandhini Mahesh</h2>
+          <p class="hero-subtitle">“Four years. Countless memories. One beautiful story.”</p>
+        </div>
+
+        <!-- The Romantic Anniversary Cake -->
+        <div class="cake-stage-wrapper">
+          <div class="cake-instruction-banner" id="cakeInstruction">
+            <p class="wish-text">“Make a wish with me…” 🕯️</p>
+          </div>
+
+          <div class="cake-container" id="cakeContainer">
+            <!-- Glowing Plate -->
+            <div class="cake-plate"></div>
+
+            <!-- Cake Assembly -->
+            <div class="anniversary-cake" id="anniversaryCake">
+              
+              <!-- Cake Topper -->
+              <div class="cake-topper">
+                <span class="topper-text">4 Years ❤️</span>
+              </div>
+
+              <!-- 4 Candle Stands & Flames -->
+              <div class="candles-row">
+                <div class="candle candle-1">
+                  <div class="flame" id="flame1"></div>
+                  <div class="wick"></div>
+                  <div class="candle-stick"></div>
+                </div>
+                <div class="candle candle-2">
+                  <div class="flame" id="flame2"></div>
+                  <div class="wick"></div>
+                  <div class="candle-stick"></div>
+                </div>
+                <div class="candle candle-3">
+                  <div class="flame" id="flame3"></div>
+                  <div class="wick"></div>
+                  <div class="candle-stick"></div>
+                </div>
+                <div class="candle candle-4">
+                  <div class="flame" id="flame4"></div>
+                  <div class="wick"></div>
+                  <div class="candle-stick"></div>
+                </div>
+              </div>
+
+              <!-- Cake Top Tier (Pink & Violet Drip Frosting) -->
+              <div class="cake-tier tier-top">
+                <div class="frosting-drip drip-top"></div>
+                <div class="cake-decorations">
+                  <span class="sugar-flower f-1">🌸</span>
+                  <span class="sugar-heart h-1">💖</span>
+                  <span class="sugar-flower f-2">🌸</span>
+                </div>
+              </div>
+
+              <!-- Cake Bottom Tier -->
+              <div class="cake-tier tier-bottom">
+                <div class="frosting-drip drip-bottom"></div>
+                <div class="pearl-border"></div>
+                <div class="cake-decorations">
+                  <span class="sugar-flower f-3">🌺</span>
+                  <span class="sugar-sparkle s-1">✨</span>
+                  <span class="sugar-heart h-2">💕</span>
+                  <span class="sugar-flower f-4">🌺</span>
+                </div>
+              </div>
+
+              <!-- Virtual Knife Cut Line (Animated on cut) -->
+              <div class="knife-cut-overlay" id="knifeCutLine">
+                <div class="knife-blade">🗡️</div>
+              </div>
+
+              <!-- Slice Separation -->
+              <div class="cake-heart-core" id="cakeHeartCore">
+                <span class="glowing-beating-heart">💖</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cake Cut Action Controls -->
+          <div class="cake-actions" id="cakeActions">
+            <button class="romantic-btn cut-cake-btn" id="cutCakeBtn" aria-label="Virtually Cut the Cake">
+              <span class="btn-sparkle">✨</span>
+              <span class="btn-text">Cut the cake 🎂</span>
+              <span class="btn-sparkle">✨</span>
+            </button>
+            <p class="tap-hint">Tap button or tap the cake to make our 4th anniversary wish</p>
+          </div>
+
+          <!-- Celebratory Reveal Message (Hidden initially) -->
+          <div class="celebration-toast" id="celebrationToast">
+            <div class="toast-card">
+              <div class="confetti-sparks">🎉 ✨ 💕 🎂 💖</div>
+              <h3 class="toast-heading">“Four years down… and I still choose you. ❤️”</h3>
+              <p class="toast-subtext">Every day with you is my sweetest gift, Nandhini.</p>
+              <button class="romantic-btn next-story-btn" id="beginStoryBtn">
+                <span>Begin Our Story</span>
+                <span class="btn-arrow">→</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="scroll-indicator" id="scrollIndicator1" data-target="page-2">
+        <span class="scroll-text">Scroll to explore our journey</span>
+        <span class="scroll-arrow">↓</span>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- PAGE 2 — OUR TIMELINE                                                    -->
+    <!-- ========================================================================= -->
+    <section class="story-section page-timeline" id="page-2" data-chapter="02" data-title="Our Timeline">
+      <div class="section-bg-glow glow-pink"></div>
+
+      <!-- Doodles -->
+      <div class="doodle doodle-camera doodle-p2-1">📷</div>
+      <div class="doodle doodle-flower doodle-p2-2">🌸</div>
+      <div class="doodle doodle-sparkle doodle-p2-3">✨</div>
+      <div class="doodle doodle-ribbon doodle-p2-4">🎀</div>
+
+      <div class="container">
+        
+        <div class="section-header text-center animate-on-scroll">
+          <div class="scrapbook-badge">Scrapbook of Memories</div>
+          <h2 class="section-title">Four Years of Us ❤️</h2>
+          <p class="section-subtitle">“Every memory became a little piece of our story.”</p>
+          
+          <!-- Love Milestones Counter -->
+          <div class="milestone-counter-box">
+            <div class="counter-item">
+              <span class="counter-num">4</span>
+              <span class="counter-label">Years of Love</span>
+            </div>
+            <div class="counter-sep">✦</div>
+            <div class="counter-item">
+              <span class="counter-num">1,461</span>
+              <span class="counter-label">Cherished Days</span>
+            </div>
+            <div class="counter-sep">✦</div>
+            <div class="counter-item">
+              <span class="counter-num">35,064+</span>
+              <span class="counter-label">Sweet Hours</span>
+            </div>
+            <div class="counter-sep">✦</div>
+            <div class="counter-item">
+              <span class="counter-num">Infinite</span>
+              <span class="counter-label">Heartbeats for You</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vertical Timeline Scrapbook -->
+        <div class="scrapbook-timeline">
+          <div class="timeline-vine-line"></div>
+
+          <!-- ================= 2023 ================= -->
+          <div class="timeline-year-marker animate-on-scroll">
+            <span class="year-badge">2023 💖</span>
+            <span class="year-desc">Where our forever began</span>
+          </div>
+
+          <!-- 2023 Photo 1 -->
+          <div class="timeline-item left-item animate-on-scroll" data-tilt="-3">
+            <div class="timeline-node"><span>🌸</span></div>
+            <div class="polaroid-card" data-img-id="2023_1">
+              <div class="washi-tape tape-top-left"></div>
+              <div class="sticker-badge">Love is... ❤️</div>
+              <div class="polaroid-img-frame">
+                <img src="assets/images/2023_1.jpg" alt="Nandhini & Hari 2023 Memory" class="polaroid-img" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=600&auto=format&fit=crop&q=80'">
+                <div class="photo-overlay-zoom"><span>🔍 View</span></div>
+              </div>
+              <div class="polaroid-caption">
+                <span class="photo-date">2023 • The Beginning</span>
+                <h3 class="photo-title">When My World Found Its Home</h3>
+                <p class="photo-quote">“The day our eyes met and my heart whispered: she is the one.”</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2023 Photo 2 -->
+          <div class="timeline-item right-item animate-on-scroll" data-tilt="3">
+            <div class="timeline-node"><span>✨</span></div>
+            <div class="polaroid-card" data-img-id="2023_2">
+              <div class="washi-tape tape-top-right"></div>
+              <div class="sticker-badge badge-rose">Pure Joy 🌸</div>
+              <div class="polaroid-img-frame">
+                <img src="assets/images/2023_2.jpg" alt="Sweet smiles in 2023" class="polaroid-img" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=600&auto=format&fit=crop&q=80'">
+                <div class="photo-overlay-zoom"><span>🔍 View</span></div>
+              </div>
+              <div class="polaroid-caption">
+                <span class="photo-date">2023 • Innocent Laughter</span>
+                <h3 class="photo-title">Your Smile, My Weakness</h3>
+                <p class="photo-quote">“Every laugh shared with you became a forever memory etched into my soul.”</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ================= 2024 ================= -->
+          <div class="timeline-year-marker animate-on-scroll">
+            <span class="year-badge">2024 🌺</span>
+            <span class="year-desc">Deeper roots, stronger love</span>
+          </div>
+
+          <!-- 2024 Photo 1 -->
+          <div class="timeline-item left-item animate-on-scroll" data-tilt="-2.5">
+            <div class="timeline-node"><span>🪷</span></div>
+            <div class="polaroid-card" data-img-id="2024_1">
+              <div class="washi-tape tape-center"></div>
+              <div class="sticker-badge badge-gold">Traditional Elegance 🪷</div>
+              <div class="polaroid-img-frame">
+                <img src="assets/images/2024_1.jpg" alt="Traditional Elegance 2024" class="polaroid-img" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1529636798458-92182e662485?w=600&auto=format&fit=crop&q=80'">
+                <div class="photo-overlay-zoom"><span>🔍 View</span></div>
+              </div>
+              <div class="polaroid-caption">
+                <span class="photo-date">2024 • In Grace & Love</span>
+                <h3 class="photo-title">In Every Lifetime, You</h3>
+                <p class="photo-quote">“Dressed in grace, looking at each other like nothing else in this world mattered.”</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2024 Photo 2 -->
+          <div class="timeline-item right-item animate-on-scroll" data-tilt="2.5">
+            <div class="timeline-node"><span>🎞️</span></div>
+            <div class="polaroid-card vintage-card" data-img-id="2024_2">
+              <div class="film-corner fc-tl"></div>
+              <div class="film-corner fc-tr"></div>
+              <div class="sticker-badge badge-lavender">Timeless Memories 🎞️</div>
+              <div class="polaroid-img-frame">
+                <img src="assets/images/2024_2.jpg" alt="Black and White Memory 2024" class="polaroid-img" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=600&auto=format&fit=crop&q=80'">
+                <div class="photo-overlay-zoom"><span>🔍 View</span></div>
+              </div>
+              <div class="polaroid-caption">
+                <span class="photo-date">2024 • Soulful Moments</span>
+                <h3 class="photo-title">Black & White, Infinite Colors</h3>
+                <p class="photo-quote">“In the quiet of our moments, your presence is the warmest comfort I've ever known.”</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ================= 2025 ================= -->
+          <div class="timeline-year-marker animate-on-scroll">
+            <span class="year-badge">2025 🚌❤️</span>
+            <span class="year-desc">Walking every path together</span>
+          </div>
+
+          <!-- 2025 Photo 1 -->
+          <div class="timeline-item left-item animate-on-scroll" data-tilt="-2">
+            <div class="timeline-node"><span>💌</span></div>
+            <div class="polaroid-card" data-img-id="2025_1">
+              <div class="washi-tape tape-top-left"></div>
+              <div class="sticker-badge badge-pink">Everyday Journey 🚌❤️</div>
+              <div class="polaroid-img-frame">
+                <img src="assets/images/2025_1.jpg" alt="Everyday Journey 2025" class="polaroid-img" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&auto=format&fit=crop&q=80'">
+                <div class="photo-overlay-zoom"><span>🔍 View</span></div>
+              </div>
+              <div class="polaroid-caption">
+                <span class="photo-date">2025 • Side by Side</span>
+                <h3 class="photo-title">Every Road Leads to You</h3>
+                <p class="photo-quote">“Even a simple bus ride turns into paradise as long as you are sitting next to me.”</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2025 Photo 2 -->
+          <div class="timeline-item right-item animate-on-scroll" data-tilt="2.5">
+            <div class="timeline-node"><span>✨</span></div>
+            <div class="polaroid-card" data-img-id="2025_2">
+              <div class="washi-tape tape-top-right"></div>
+              <div class="sticker-badge badge-gold">How Night Feels ✨</div>
+              <div class="polaroid-img-frame">
+                <img src="assets/images/2025_2.jpg" alt="How Night Feels 2025" class="polaroid-img" loading="lazy">
+                <div class="photo-overlay-zoom"><span>🔍 View</span></div>
+              </div>
+              <div class="polaroid-caption">
+                <span class="photo-date">2025 • Under the Evening Glow</span>
+                <h3 class="photo-title">Where Peace Resides</h3>
+                <p class="photo-quote">“Holding you close as the evening falls, knowing my heart has found its forever sanctuary.”</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ================= 2026 ================= -->
+          <div class="timeline-year-marker animate-on-scroll">
+            <span class="year-badge badge-glow">2026 💍✨</span>
+            <span class="year-desc">4th Anniversary & Beyond</span>
+          </div>
+
+          <!-- 2026 Photo 1 -->
+          <div class="timeline-item left-item animate-on-scroll" data-tilt="-2">
+            <div class="timeline-node"><span>🎀</span></div>
+            <div class="polaroid-card" data-img-id="2026_1">
+              <div class="washi-tape tape-center"></div>
+              <div class="sticker-badge badge-rose">Pure Radiance 🤍</div>
+              <div class="polaroid-img-frame">
+                <img src="assets/images/2026_1.jpg" alt="Our Brightest Smiles 2026" class="polaroid-img" loading="lazy">
+                <div class="photo-overlay-zoom"><span>🔍 View</span></div>
+              </div>
+              <div class="polaroid-caption">
+                <span class="photo-date">2026 • Joyful Moments</span>
+                <h3 class="photo-title">Our Brightest Smiles</h3>
+                <p class="photo-quote">“Four years later, and your laughter still lights up every single corner of my soul.”</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2026 Photo 2 -->
+          <div class="timeline-item right-item animate-on-scroll" data-tilt="2">
+            <div class="timeline-node"><span>☀️</span></div>
+            <div class="polaroid-card" data-img-id="2026_2">
+              <div class="washi-tape tape-top-right"></div>
+              <div class="sticker-badge badge-lavender">Golden Sunlit Ride ☀️</div>
+              <div class="polaroid-img-frame">
+                <img src="assets/images/2026_2.jpg" alt="Friday Afternoon Sunshine 2026" class="polaroid-img" loading="lazy">
+                <div class="photo-overlay-zoom"><span>🔍 View</span></div>
+              </div>
+              <div class="polaroid-caption">
+                <span class="photo-date">2026 • 4th Anniversary Year</span>
+                <h3 class="photo-title">Golden Rays, Timeless Love</h3>
+                <p class="photo-quote">“Sunlight through the window, my world sitting next to me — ready for forever.”</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Future Memory Placeholder (Optional upload slot) -->
+          <div class="timeline-item left-item animate-on-scroll" data-tilt="-1.5">
+            <div class="timeline-node"><span>🌟</span></div>
+            <div class="polaroid-card placeholder-card" data-slot-id="future_memories">
+              <div class="washi-tape tape-top-left"></div>
+              <div class="sticker-badge badge-gold">Forever To Go ♾️</div>
+              <div class="polaroid-img-frame placeholder-frame" id="slot-future">
+                <div class="placeholder-content">
+                  <span class="ph-icon">💖</span>
+                  <span class="ph-title">Our Next Memory ❤️</span>
+                  <span class="ph-subtext">Click to add more future photos</span>
+                </div>
+                <input type="file" class="photo-upload-input" data-target-slot="slot-future" accept="image/*" style="display: none;">
+              </div>
+              <div class="polaroid-caption">
+                <span class="photo-date">Beyond 4 Years</span>
+                <h3 class="photo-title">To Infinity & Beyond</h3>
+                <p class="photo-quote">“Every tomorrow is another chapter waiting to be written with you.”</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Timeline Conclusion Banner -->
+        <div class="timeline-finale-card animate-on-scroll">
+          <div class="doodle-sparkle">✨</div>
+          <p class="finale-text">
+            “And somehow, after all these years…<br>
+            <strong>my favorite place is still beside you.” ❤️</strong>
+          </p>
+          <div class="doodle-heart-cluster">🌸 💖 🌸</div>
+        </div>
+
+      </div>
+
+      <div class="scroll-indicator" data-target="page-3">
+        <span class="scroll-text">Continue to The Envelope</span>
+        <span class="scroll-arrow">↓</span>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- PAGE 3 — THE LETTER ENVELOPE                                             -->
+    <!-- ========================================================================= -->
+    <section class="story-section page-envelope" id="page-3" data-chapter="03" data-title="The Envelope">
+      <div class="section-bg-glow glow-violet"></div>
+
+      <!-- Doodles -->
+      <div class="doodle doodle-heart doodle-p3-1">💌</div>
+      <div class="doodle doodle-sparkle doodle-p3-2">✨</div>
+      <div class="doodle doodle-ribbon doodle-p3-3">🎀</div>
+
+      <div class="container envelope-scene">
+        
+        <div class="envelope-header animate-on-scroll">
+          <span class="envelope-subtag">A Special Keepsake Just For You</span>
+          <h2 class="envelope-main-heading">From My Heart to Yours ❤️</h2>
+        </div>
+
+        <!-- Interactive 3D Romantic Envelope -->
+        <div class="interactive-envelope-stage" id="envelopeStage">
+          <div class="envelope-glow-aura" id="envelopeGlow"></div>
+
+          <div class="envelope-box" id="envelopeBox" role="button" tabindex="0" aria-label="Open Love Letter Envelope">
+            
+            <!-- Envelope Flap (Top triangle) -->
+            <div class="envelope-flap" id="envelopeFlap">
+              <!-- Wax Seal -->
+              <div class="wax-seal" id="waxSeal">
+                <span class="wax-seal-inner">N & H<br>❤️</span>
+              </div>
+            </div>
+
+            <!-- Envelope Pocket / Front Face -->
+            <div class="envelope-front">
+              <div class="envelope-stamp">
+                <span class="stamp-post">4 YEARS<br>ANNIVERSARY</span>
+                <span class="stamp-heart">💌</span>
+              </div>
+
+              <div class="envelope-address">
+                <div class="address-line to-tag">TO:</div>
+                <div class="address-line recipient-title">The Person Who Owns My Heart</div>
+                <div class="address-line recipient-name">Nandhini Mahesh ❤️</div>
+                <div class="address-line from-tag">With all my eternal love — Hari Prasath</div>
+              </div>
+
+              <div class="envelope-prompt">
+                <span class="open-hint-pill">“Open when you are ready…” ✨</span>
+              </div>
+            </div>
+
+            <!-- Letter Sliding Up Preview -->
+            <div class="letter-sheet-preview" id="letterPreview">
+              <div class="preview-header">
+                <span class="letter-seal-mini">💌 A Letter For You</span>
+              </div>
+              <div class="preview-lines">
+                <div class="p-line line-1"></div>
+                <div class="p-line line-2"></div>
+                <div class="p-line line-3"></div>
+              </div>
+            </div>
+
+          </div>
+
+          <p class="envelope-click-instruction" id="envelopeClickInstruction">
+            <span>✨ Tap or click the wax seal to unfold the letter ✨</span>
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- PAGE 4 — THE LOVE LETTER                                                 -->
+    <!-- ========================================================================= -->
+    <section class="story-section page-letter" id="page-4" data-chapter="04" data-title="The Love Letter">
+      <div class="section-bg-glow glow-pink"></div>
+
+      <!-- Doodles -->
+      <div class="doodle doodle-flower doodle-p4-1">🌸</div>
+      <div class="doodle doodle-sparkle doodle-p4-2">✨</div>
+      <div class="doodle doodle-heart doodle-p4-3">💕</div>
+      <div class="doodle doodle-candle doodle-p4-4">🕯️</div>
+
+      <div class="container letter-container">
+        
+        <div class="letter-parchment animate-on-scroll" id="letterParchment">
+          
+          <div class="letter-header-decor">
+            <span class="wax-seal-stamp">❤️</span>
+            <div class="ribbon-line"></div>
+          </div>
+
+          <h2 class="letter-title">A Letter for You ❤️</h2>
+          <div class="letter-dedication">My Dearest Nandhini,</div>
+
+          <div class="letter-body">
+            <p class="letter-para">
+              Maybe life is not gentle with me.
+            </p>
+            <p class="letter-para">
+              Maybe life is not going the way which I want.
+            </p>
+            <p class="letter-para">
+              Maybe things are not getting better.
+            </p>
+            <p class="letter-para">
+              Maybe I am not the perfect one.
+            </p>
+            
+            <p class="letter-para emotional-lead">
+              But irrespective of all these things in my life, I have one thing.
+            </p>
+
+            <div class="highlight-callout-primary">
+              <span class="glow-symbol">✦</span>
+              <span class="highlight-text-large">That is you.</span>
+              <span class="glow-symbol">✦</span>
+            </div>
+
+            <p class="letter-para">
+              You are not only a good luck of mine.
+            </p>
+
+            <div class="highlight-callout-blessing">
+              <span class="highlight-text-blessing">“You are a blessing which I got for no reason.”</span>
+            </div>
+
+            <p class="letter-para">
+              I just don't know what to say, why God chose me to bless me in this way.
+            </p>
+
+            <p class="letter-para gratitude-block">
+              I just want to say <span class="highlight-pink-bold">thank you.</span><br>
+              Thank you to you,<br>
+              and thank you to God.
+            </p>
+
+            <div class="thank-you-stamp">
+              <span class="big-thankyou">Thank you. ❤️</span>
+            </div>
+          </div>
+
+          <div class="letter-footer">
+            <div class="handwritten-closing">
+              “If I had to choose again, I would still choose you.”
+            </div>
+            <div class="signature-line">
+              <span>Forever & Always Yours,</span>
+              <span class="signature-name">Hari Prasath ❤️</span>
+            </div>
+          </div>
+
+          <div class="letter-corner-doodles">
+            <span class="cd cd-tl">🌸</span>
+            <span class="cd cd-tr">✨</span>
+            <span class="cd cd-bl">🎀</span>
+            <span class="cd cd-br">💖</span>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="scroll-indicator" data-target="page-5">
+        <span class="scroll-text">Next Memory</span>
+        <span class="scroll-arrow">↓</span>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- PAGE 5 — SEPTEMBER 30, 2026                                              -->
+    <!-- ========================================================================= -->
+    <section class="story-section page-night" id="page-5" data-chapter="05" data-title="September 30, 2026">
+      <div class="night-sky-overlay">
+        <!-- Glowing Moon & Constellations -->
+        <div class="celestial-moon">
+          <div class="moon-body"></div>
+          <div class="moon-halo"></div>
+        </div>
+        <div class="star-field">
+          <span class="star s1">✦</span>
+          <span class="star s2">★</span>
+          <span class="star s3">✦</span>
+          <span class="star s4">★</span>
+          <span class="star s5">✦</span>
+          <span class="star s6">★</span>
+        </div>
+      </div>
+
+      <div class="container night-container">
+        
+        <div class="night-card animate-on-scroll">
+          
+          <div class="card-top-icon">
+            <div class="candle-night-glow">
+              <div class="flame-night"></div>
+              <div class="wick-night"></div>
+              <div class="candle-base-night">🕯️</div>
+            </div>
+          </div>
+
+          <div class="night-date-badge">
+            <span class="moon-emoji">🌙</span> September 30, 2026 <span class="moon-emoji">🌙</span>
+          </div>
+
+          <h2 class="night-title">For the nights when the world feels a little too heavy…</h2>
+
+          <div class="night-quote-box">
+            <p class="night-main-text">
+              I hope whenever your eyes get heavy due to the weight of being unloved,
+            </p>
+            
+            <div class="night-highlight-exist">
+              <span class="twinkle-icon">✨</span>
+              <span class="exist-text">you remember that I exist.</span>
+              <span class="twinkle-icon">✨</span>
+            </div>
+
+            <p class="night-sub-text">
+              And my eyes will always hold the same love I had for you since the beginning. ❤️
+            </p>
+          </div>
+
+          <div class="night-handwritten-note">
+            <span class="handwritten-icon">💌</span>
+            <p class="handwritten-text">
+              “Whenever the world feels heavy, remember that you never have to carry it alone.”
+            </p>
+          </div>
+
+          <div class="card-doodles">
+            <span class="nd nd-1">✨</span>
+            <span class="nd nd-2">💜</span>
+            <span class="nd nd-3">🌙</span>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="scroll-indicator" data-target="page-6">
+        <span class="scroll-text">Next Memory</span>
+        <span class="scroll-arrow">↓</span>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- PAGE 6 — OCTOBER 1, 2026                                                 -->
+    <!-- ========================================================================= -->
+    <section class="story-section page-dawn" id="page-6" data-chapter="06" data-title="October 1, 2026">
+      <div class="section-bg-glow glow-magenta"></div>
+
+      <!-- Doodles -->
+      <div class="doodle doodle-flower doodle-p6-1">🌷</div>
+      <div class="doodle doodle-sparkle doodle-p6-2">✨</div>
+      <div class="doodle doodle-heart doodle-p6-3">💖</div>
+
+      <div class="container dawn-container">
+        
+        <div class="dawn-card animate-on-scroll">
+          
+          <div class="dawn-date-badge">
+            <span class="tulip-emoji">🌷</span> October 1, 2026 <span class="tulip-emoji">🌷</span>
+          </div>
+
+          <h2 class="dawn-subtitle">“One more thing I want you to remember…”</h2>
+
+          <div class="dawn-content-box">
+            <div class="poetic-lines">
+              <p>Maybe life is not gentle with me.</p>
+              <p>Maybe life is not going the way which I want.</p>
+              <p>Maybe things are not getting better.</p>
+              <p>Maybe I am not the perfect one.</p>
+              <p class="emphasis-line">But irrespective of all these things in my life, I have one thing.</p>
+            </div>
+
+            <div class="dawn-center-focus">
+              <span class="focus-quote">“That is you.”</span>
+            </div>
+
+            <div class="poetic-lines second-block">
+              <p>You are not only a good luck of mine.</p>
+              <p class="blessing-quote">You are a blessing which I got for no reason.</p>
+              <p>I just don't know what to say, why God chose me to bless me in this way.</p>
+              <p class="thanks-line">I just want to say <strong>thank you.</strong></p>
+              <p>Thank you to you, and thank you to God.</p>
+              <p class="big-thanks">Thank you. ❤️</p>
+            </div>
+          </div>
+
+          <div class="person-highlight-banner">
+            <div class="highlight-pill">
+              <span class="heart-pulse">❤️</span>
+              <h3 class="highlight-quote-person">“Thank you for being my person.”</h3>
+              <span class="heart-pulse">❤️</span>
+            </div>
+            <p class="chapter-quote">“Four years later, you are still my favorite chapter.”</p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="scroll-indicator" data-target="page-7">
+        <span class="scroll-text">A Message of Strength</span>
+        <span class="scroll-arrow">↓</span>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- PAGE 7 — PSALM 46:5                                                      -->
+    <!-- ========================================================================= -->
+    <section class="story-section page-serene" id="page-7" data-chapter="07" data-title="Psalm 46:5">
+      <div class="sunbeam-overlay"></div>
+      <div class="section-bg-glow glow-gold"></div>
+
+      <!-- Doodles -->
+      <div class="doodle doodle-flower doodle-p7-1">🌸</div>
+      <div class="doodle doodle-sparkle doodle-p7-2">✨</div>
+      <div class="doodle doodle-ribbon doodle-p7-3">🕊️</div>
+
+      <div class="container serene-container">
+        
+        <div class="serene-card animate-on-scroll">
+          
+          <div class="serene-tag">
+            <span class="feather-icon">🕊️</span> For You ❤️ <span class="feather-icon">🕊️</span>
+          </div>
+
+          <h2 class="scripture-heading">Psalm 46:5</h2>
+
+          <div class="scripture-box">
+            <div class="scripture-quote-mark">“</div>
+            <p class="scripture-text">
+              God is within her, she will not fall; God will help her at break of day.
+            </p>
+            <div class="scripture-quote-mark-end">”</div>
+          </div>
+
+          <div class="serene-divider">
+            <span>🌸</span><span>✦</span><span>🌸</span>
+          </div>
+
+          <div class="serene-message-card">
+            <p class="serene-handwritten">
+              “Whenever you feel lost, tired, or afraid, I hope you remember that you are stronger than you think, and you are never alone.”
+            </p>
+          </div>
+
+          <div class="serene-sparkle-foot">
+            <span>✨ You are loved beyond measure ✨</span>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="scroll-indicator" data-target="page-8">
+        <span class="scroll-text">Our Next Chapter</span>
+        <span class="scroll-arrow">↓</span>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- FINAL PAGE — OUR NEXT CHAPTER                                            -->
+    <!-- ========================================================================= -->
+    <section class="story-section page-final" id="page-8" data-chapter="08" data-title="Our Next Chapter">
+      <div class="section-bg-glow glow-all"></div>
+
+      <!-- Celebration Doodles -->
+      <div class="doodle doodle-heart doodle-p8-1">💖</div>
+      <div class="doodle doodle-sparkle doodle-p8-2">✨</div>
+      <div class="doodle doodle-flower doodle-p8-3">🌸</div>
+      <div class="doodle doodle-ribbon doodle-p8-4">🎀</div>
+
+      <div class="container final-container">
+        
+        <div class="final-card animate-on-scroll">
+          
+          <div class="final-header">
+            <div class="anniversary-crown">👑 ❤️ 👑</div>
+            <h1 class="final-grand-title">Four Years. One Love. Forever To Go. ❤️</h1>
+          </div>
+
+          <div class="final-letter-box">
+            <h3 class="final-dear-name">Nandhini,</h3>
+            
+            <p class="final-body-text">
+              Thank you for being a part of my life, for every memory, every smile, every difficult day, and every moment that became ours.
+            </p>
+
+            <div class="final-chapter-prompts">
+              <div class="prompt-line line-a">
+                <span class="quote-spark">✦</span>
+                <span class="p-text">“This isn't the end of our story.”</span>
+                <span class="quote-spark">✦</span>
+              </div>
+              <div class="prompt-line line-b">
+                <span class="quote-spark">✦</span>
+                <span class="p-text">“It's just another beautiful chapter.”</span>
+                <span class="quote-spark">✦</span>
+              </div>
+            </div>
+
+            <div class="final-anniversary-declaration">
+              <h2 class="final-wish-name">Happy 4th Love Anniversary, Nandhini. ❤️</h2>
+              <p class="final-promise">
+                “I love you. Today, tomorrow, and through every chapter that comes next.”
+              </p>
+            </div>
+          </div>
+
+          <!-- Pulsating Glowing Beating Heart -->
+          <div class="interactive-heart-stage">
+            <button class="grand-beating-heart-btn" id="grandHeartBtn" aria-label="Tap for Love Explosion" title="Tap our beating heart!">
+              <span class="heart-shape">💖</span>
+              <span class="heart-pulse-ring ring-1"></span>
+              <span class="heart-pulse-ring ring-2"></span>
+            </button>
+            <span class="heart-tap-text">Tap our beating heart ❤️</span>
+          </div>
+
+          <!-- Interactive Action Buttons -->
+          <div class="final-actions-row">
+            <button class="romantic-btn replay-btn" id="replayStoryBtn">
+              <span>🔄 Replay Our Journey</span>
+            </button>
+            <button class="romantic-btn love-surprise-btn" id="loveSurpriseBtn">
+              <span>💌 Surprise Love Note</span>
+            </button>
+          </div>
+
+          <div class="made-with-love">
+            <p>Crafted with endless love by <strong>Hari Prasath</strong>, specifically for <strong>Nandhini Mahesh</strong></p>
+            <p class="anniversary-date-stamp">4 Years of Togetherness • October 2026</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- MODALS & POPUPS                                                           -->
+  <!-- ========================================================================= -->
+
+  <!-- Polaroid Image Lightbox Modal -->
+  <div class="modal-backdrop" id="imageModal" aria-hidden="true">
+    <div class="modal-dialog polaroid-modal">
+      <button class="modal-close-btn" id="closeImageModal" aria-label="Close Image Preview">✕</button>
+      <div class="modal-polaroid-frame">
+        <div class="washi-tape tape-center"></div>
+        <div class="modal-img-wrapper">
+          <img src="" alt="Enlarged Memory" id="modalImg" class="modal-img">
+        </div>
+        <div class="modal-caption-content">
+          <span class="modal-date" id="modalDate">2023 • Memory</span>
+          <h3 class="modal-title" id="modalTitle">Memory Title</h3>
+          <p class="modal-quote" id="modalQuote">“Memory Caption”</p>
+          <div class="photo-replace-tool">
+            <label class="replace-btn-label">
+              <span>📷 Replace / Add Custom Photo</span>
+              <input type="file" id="modalPhotoInput" accept="image/*" style="display:none;">
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Surprise Love Note Modal -->
+  <div class="modal-backdrop" id="loveNoteModal" aria-hidden="true">
+    <div class="modal-dialog note-modal">
+      <button class="modal-close-btn" id="closeNoteModal" aria-label="Close Note">✕</button>
+      <div class="love-note-card">
+        <div class="note-top-doodle">💌 ✨ 🌸</div>
+        <span class="note-number" id="surpriseNoteNumber">Love Note #01</span>
+        <h3 class="note-title" id="surpriseNoteTitle">Why I Love You</h3>
+        <p class="note-content" id="surpriseNoteContent">
+          “You make my entire universe softer, kinder, and infinitely more beautiful.”
+        </p>
+        <button class="romantic-btn" id="nextLoveNoteBtn">
+          <span>Read Another Note 💕</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
